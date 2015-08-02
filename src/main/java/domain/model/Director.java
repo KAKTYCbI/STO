@@ -1,5 +1,7 @@
 package domain.model;
 
+import java.util.List;
+
 public class Director {
 
 	private Long id;
@@ -12,7 +14,7 @@ public class Director {
 	
 	private String password;
 	
-	private Long salary;
+	private List<Salary> salary;
 
 	public Long getId() {
 		return id;

@@ -6,7 +6,7 @@ public class ApplicationDetail {
 	
 	private Long id;
 	
-	private String status;
+	private Status status;
 	
 	private String name;
 	

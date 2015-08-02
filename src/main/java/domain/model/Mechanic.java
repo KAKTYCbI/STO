@@ -10,7 +10,7 @@ public class Mechanic {
 	
 	private String password;
 	
-	private Long salary;
+	private List<Salary> salary;
 	
 	private String email;
 	

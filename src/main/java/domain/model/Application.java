@@ -13,7 +13,7 @@ public class Application {
 	
 	private Date dateCompletion;
 	
-	private String status;
+	private Status status;
 	
 	private List<Service> services;
 	
