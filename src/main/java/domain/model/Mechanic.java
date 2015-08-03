@@ -10,7 +10,7 @@ public class Mechanic {
 	
 	private String password;
 	
-	private List<Salary> salary;
+	private List<Salary> salarys;
 	
 	private String email;
 	
@@ -48,13 +48,7 @@ public class Mechanic {
 		this.password = password;
 	}
 
-	public Long getSalary() {
-		return salary;
-	}
 
-	public void setSalary(Long salary) {
-		this.salary = salary;
-	}
 
 	public String getEmail() {
 		return email;
@@ -102,6 +96,14 @@ public class Mechanic {
 
 	public void setSto(Sto sto) {
 		this.sto = sto;
+	}
+
+	public List<Salary> getSalarys() {
+		return salarys;
+	}
+
+	public void setSalarys(List<Salary> salarys) {
+		this.salarys = salarys;
 	}
 	
 	

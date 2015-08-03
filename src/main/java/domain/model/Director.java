@@ -56,13 +56,15 @@ public class Director {
 		this.password = password;
 	}
 
-	public Long getSalary() {
+	public List<Salary> getSalary() {
 		return salary;
 	}
 
-	public void setSalary(Long salary) {
+	public void setSalary(List<Salary> salary) {
 		this.salary = salary;
 	}
+
+
 	
 	
 }
