@@ -8,13 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="mechanic")
-public class MechanicEntity {
-	
+@Table(name="director")
+public class DirectorEntity {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="mechanic_id")
-	private Long mechanicId;
+    @Column(name="director_id")
+	private Long directorId;
 	
 	@Column(name="name")
 	private String name;
@@ -27,16 +27,13 @@ public class MechanicEntity {
 	
 	@Column(name="contact")
 	private String contact;
-	
-	@Column(name="rating")
-	private Double rating;
 
-	public Long getMechanicId() {
-		return mechanicId;
+	public Long getDirectorId() {
+		return directorId;
 	}
 
-	public void setMechanicId(Long mechanicId) {
-		this.mechanicId = mechanicId;
+	public void setDirectorId(Long directorId) {
+		this.directorId = directorId;
 	}
 
 	public String getName() {
@@ -70,14 +67,7 @@ public class MechanicEntity {
 	public void setContact(String contact) {
 		this.contact = contact;
 	}
-
-	public Double getRating() {
-		return rating;
-	}
-
-	public void setRating(Double rating) {
-		this.rating = rating;
-	}
-
 	
+	
+
 }

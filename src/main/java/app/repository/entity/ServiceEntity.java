@@ -8,26 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="detail")
-public class DetailEntity {
+@Table(name="service")
+public class ServiceEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="detail_id")
-	private Long detailId;
+	@Column(name="service_id")
+	private Long serviceId;
 	
 	@Column(name="name")
 	private String name;
 	
 	@Column(name="price")
-	private Long price;
+	private Double price;
 
-	public Long getDetailId() {
-		return detailId;
+	public Long getServiceId() {
+		return serviceId;
 	}
 
-	public void setDetailId(Long detailId) {
-		this.detailId = detailId;
+	public void setServiceId(Long serviceId) {
+		this.serviceId = serviceId;
 	}
 
 	public String getName() {
@@ -38,11 +38,11 @@ public class DetailEntity {
 		this.name = name;
 	}
 
-	public Long getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Long price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	
