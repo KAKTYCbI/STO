@@ -2,10 +2,16 @@ package app.repository.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import domain.model.Client;
+import domain.model.Mechanic;
 
 @Entity
 @Table(name="message")
@@ -19,8 +25,13 @@ public class MessageEntity {
 	@Column(name="text")
 	private String text;
 	
-	@Column(name="clientId")
-	private Long clientId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "client_id", nullable = false )
+    private Client client;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "mechanic_id", nullable = false)
+	private Mechanic mechanic;
 
 	public Long getMessageId() {
 		return messageId;
@@ -38,13 +49,24 @@ public class MessageEntity {
 		this.text = text;
 	}
 
-	public Long getClientId() {
-		return clientId;
+	public Client getClient() {
+		return client;
 	}
 
-	public void setClientId(Long clientId) {
-		this.clientId = clientId;
+	public void setClient(Client client) {
+		this.client = client;
 	}
+
+	public Mechanic getMechanic() {
+		return mechanic;
+	}
+
+	public void setMechanic(Mechanic mechanic) {
+		this.mechanic = mechanic;
+	}
+
+	
+
 	
 	
 }

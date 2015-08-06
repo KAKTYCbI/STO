@@ -31,4 +31,5 @@ public class Detail {
 	public void setPrice(Long price) {
 		this.price = price;
 	}
+	
 }

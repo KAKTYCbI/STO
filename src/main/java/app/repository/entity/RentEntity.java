@@ -4,10 +4,15 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import domain.model.Sto;
 
 @Entity
 @Table(name="rent")
@@ -27,6 +32,10 @@ public class RentEntity {
 	@Column(name="price")
 	private Float price;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "sto_sto_id", nullable = false)
+	private Sto sto;
+	
 	public Long getRentId() {
 		return rentId;
 	}
@@ -57,6 +66,14 @@ public class RentEntity {
 
 	public void setPrice(Float price) {
 		this.price = price;
+	}
+
+	public Sto getSto() {
+		return sto;
+	}
+
+	public void setSto(Sto sto) {
+		this.sto = sto;
 	}
 
 	

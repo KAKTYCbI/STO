@@ -4,10 +4,16 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import domain.model.Director;
+import domain.model.Mechanic;
 
 
 @Entity
@@ -25,6 +31,14 @@ public class SalaryEntity {
 	@Column(name="summa")
 	private Float summa;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "director_id", nullable = false)
+    private Director director;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "mechanic_id", nullable = false)
+	private Mechanic mechanic;
+	
 	public Long getSalaryId() {
 		return salaryId;
 	}
@@ -47,6 +61,22 @@ public class SalaryEntity {
 
 	public void setSumma(Float summa) {
 		this.summa = summa;
+	}
+
+	public Director getDirector() {
+		return director;
+	}
+
+	public void setDirector(Director director) {
+		this.director = director;
+	}
+
+	public Mechanic getMechanic() {
+		return mechanic;
+	}
+
+	public void setMechanic(Mechanic mechanic) {
+		this.mechanic = mechanic;
 	}
 	
 	

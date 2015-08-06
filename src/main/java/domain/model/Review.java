@@ -8,6 +8,10 @@ public class Review {
 	
 	private Client client;
 	
+	private Mechanic mechanic;
+	
+	private Sto sto;
+	
 	private Date date;
 	
 	private String text;
@@ -62,6 +66,22 @@ public class Review {
 
 	public void setVisible(Boolean visible) {
 		this.visible = visible;
+	}
+
+	public Mechanic getMechanic() {
+		return mechanic;
+	}
+
+	public void setMechanic(Mechanic mechanic) {
+		this.mechanic = mechanic;
+	}
+
+	public Sto getSto() {
+		return sto;
+	}
+
+	public void setSto(Sto sto) {
+		this.sto = sto;
 	}
 	
 	

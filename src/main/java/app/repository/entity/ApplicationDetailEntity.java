@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import domain.model.Application;
@@ -21,7 +24,8 @@ public class ApplicationDetailEntity {
     @Column(name="application_detail_id")
     private Long applicationDetailId;
 	
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "status_status_id", nullable = false)
 	private Status status;
 	
 	@Column(name="name")
@@ -33,6 +37,8 @@ public class ApplicationDetailEntity {
 	@Column(name="date_delivery")
 	private Date dateDelivery;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "application_application_id", nullable = false)
 	private Application application;
 
 	public Long getApplicationDetailId() {

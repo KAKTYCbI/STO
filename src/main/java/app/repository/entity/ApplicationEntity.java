@@ -5,10 +5,18 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import domain.model.Client;
 import domain.model.Detail;
@@ -35,18 +43,39 @@ public class ApplicationEntity {
 	@Column(name="date_completion")
 	private Date dateCompletion;
 	
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "status_status_id", nullable = false)
 	private Status status;
 	
+	@ManyToMany(fetch = FetchType.LAZY/*, cascade = CascadeType.ALL*/)
+	@JoinTable(name = "service_has_application", 
+			joinColumns = { 
+				@JoinColumn(name = "application_application_id", nullable = false) }, 
+				inverseJoinColumns = { @JoinColumn(name = "service_service_id", nullable = false) })
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<Service> services;
 	
+	@ManyToMany(fetch = FetchType.LAZY/*, cascade = CascadeType.ALL*/)
+	@JoinTable(name = "application_has_detail", 
+			joinColumns = { 
+				@JoinColumn(name = "application_application_id", nullable = false) }, 
+				inverseJoinColumns = { @JoinColumn(name = "detail_detail_id", nullable = false) })
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<Detail> details;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "client_client_id", nullable = false)
 	private Client client;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "mechanic_mechanic_id", nullable = false)
 	private Mechanic mechanic;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "sto_sto_id", nullable = false)
 	private Sto sto;
+	
+   
 
 	public Long getId() {
 		return id;

@@ -1,11 +1,22 @@
 package app.repository.entity;
 
+import java.util.List;
+
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+import domain.model.Message;
 
 @Entity
 @Table(name = "client")
@@ -27,6 +38,11 @@ public class ClientEntity {
 	@Column(name="contact")
 	private String contact;
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "client", orphanRemoval=true)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	private List<Message> messages;
+	
+	
 	public Long getClientId() {
 		return clientId;
 	}
@@ -67,5 +83,15 @@ public class ClientEntity {
 		this.contact = contact;
 	}
 
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+
+	
+	
 	
 }
