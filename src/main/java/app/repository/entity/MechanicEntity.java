@@ -29,7 +29,7 @@ public class MechanicEntity {
 	private String contact;
 	
 	@Column(name="rating")
-	private Double rating;
+	private Float rating;
 
 	public Long getMechanicId() {
 		return mechanicId;
@@ -71,11 +71,11 @@ public class MechanicEntity {
 		this.contact = contact;
 	}
 
-	public Double getRating() {
+	public Float getRating() {
 		return rating;
 	}
 
-	public void setRating(Double rating) {
+	public void setRating(Float rating) {
 		this.rating = rating;
 	}
 

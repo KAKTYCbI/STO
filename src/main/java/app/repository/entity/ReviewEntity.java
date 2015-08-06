@@ -25,7 +25,7 @@ public class ReviewEntity {
 	private Date date;
 	
 	@Column(name="rating")
-	private Double rating;
+	private Float rating;
 	
 	@Column(name="visible")
 	private Boolean visible;
@@ -54,11 +54,11 @@ public class ReviewEntity {
 		this.date = date;
 	}
 
-	public Double getRating() {
+	public Float getRating() {
 		return rating;
 	}
 
-	public void setRating(Double rating) {
+	public void setRating(Float rating) {
 		this.rating = rating;
 	}
 

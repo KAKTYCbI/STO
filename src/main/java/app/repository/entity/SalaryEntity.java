@@ -23,7 +23,7 @@ public class SalaryEntity {
 	private Date date;
 	
 	@Column(name="summa")
-	private Double summa;
+	private Float summa;
 
 	public Long getSalaryId() {
 		return salaryId;
@@ -41,11 +41,11 @@ public class SalaryEntity {
 		this.date = date;
 	}
 
-	public Double getSumma() {
+	public Float getSumma() {
 		return summa;
 	}
 
-	public void setSumma(Double summa) {
+	public void setSumma(Float summa) {
 		this.summa = summa;
 	}
 	

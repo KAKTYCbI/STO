@@ -20,7 +20,7 @@ public class ServiceEntity {
 	private String name;
 	
 	@Column(name="price")
-	private Double price;
+	private Float price;
 
 	public Long getServiceId() {
 		return serviceId;
@@ -38,11 +38,11 @@ public class ServiceEntity {
 		this.name = name;
 	}
 
-	public Double getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 	

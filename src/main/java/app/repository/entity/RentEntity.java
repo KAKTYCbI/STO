@@ -25,7 +25,7 @@ public class RentEntity {
 	private Date finish;
 	
 	@Column(name="price")
-	private Double price;
+	private Float price;
 
 	public Long getRentId() {
 		return rentId;
@@ -51,11 +51,11 @@ public class RentEntity {
 		this.finish = finish;
 	}
 
-	public Double getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 
