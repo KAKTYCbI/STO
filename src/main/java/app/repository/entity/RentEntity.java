@@ -25,10 +25,7 @@ public class RentEntity {
 	
 	@Column(name="start")
 	private Date start;
-	
-	@Column(name="finish")
-	private Date finish;
-	
+		
 	@Column(name="price")
 	private Float price;
 
@@ -50,14 +47,6 @@ public class RentEntity {
 
 	public void setStart(Date start) {
 		this.start = start;
-	}
-
-	public Date getFinish() {
-		return finish;
-	}
-
-	public void setFinish(Date finish) {
-		this.finish = finish;
 	}
 
 	public Float getPrice() {

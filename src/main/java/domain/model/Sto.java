@@ -11,6 +11,10 @@ public class Sto {
 	private Double rating;
 	
 	private List<Review> reviews;
+	
+	private List<Mechanic> mechanics;
+	
+	private List<Application> orders;
 
 	public Long getId() {
 		return id;
@@ -42,6 +46,22 @@ public class Sto {
 
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
+	}
+
+	public List<Mechanic> getMechanic() {
+		return mechanics;
+	}
+
+	public void setMechanic(List<Mechanic> mechanics) {
+		this.mechanics = mechanics;
+	}
+
+	public List<Application> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Application> orders) {
+		this.orders = orders;
 	}
 
 	

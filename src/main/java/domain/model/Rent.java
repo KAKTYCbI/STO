@@ -8,8 +8,6 @@ public class Rent {
 	
 	private Date dateStart;
 	
-	private Date dateFinish;
-	
 	private Long price;
 	
 	private Sto sto;
@@ -30,14 +28,7 @@ public class Rent {
 		this.dateStart = dateStart;
 	}
 
-	public Date getDateFinish() {
-		return dateFinish;
-	}
-
-	public void setDateFinish(Date dateFinish) {
-		this.dateFinish = dateFinish;
-	}
-
+	
 	public Long getPrice() {
 		return price;
 	}
