@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import domain.model.Application;
+import domain.model.Mechanic;
 import domain.model.Review;
 
 @Entity
@@ -34,6 +36,14 @@ public class StoEntity {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sto", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<Review> reviews;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sto", orphanRemoval=true)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+    private List<Mechanic> mechanics;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sto", orphanRemoval=true)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	private List<Application> orders;
 	
 	public Long getStoId() {
 		return stoId;
@@ -65,6 +75,22 @@ public class StoEntity {
 
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
+	}
+
+	public List<Mechanic> getMechanics() {
+		return mechanics;
+	}
+
+	public void setMechanics(List<Mechanic> mechanics) {
+		this.mechanics = mechanics;
+	}
+
+	public List<Application> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Application> orders) {
+		this.orders = orders;
 	}
 	
 	
