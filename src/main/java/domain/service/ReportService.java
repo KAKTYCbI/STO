@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import domain.model.Application;
-import domain.model.Detail;
 import domain.model.Director;
 import domain.model.Mechanic;
 import domain.model.Rent;

@@ -13,6 +13,7 @@ public class Director extends UserPrincipal{
 
 	public void setSalary(List<Salary> salary) {
 		this.salary = salary;
+	
 	}
 
 
