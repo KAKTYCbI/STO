@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package domain.service;
 
 import domain.model.UserPrincipal;
@@ -16,3 +17,32 @@ public interface UserService {
 	// удаление выбранного клиента
 	void deleteUser(UserPrincipal user);
 }
+=======
+package domain.service;
+
+import java.util.List;
+
+import domain.model.UserPrincipal;
+
+public interface UserService {
+	
+	 // јвторизаци€ пользовател€ на сайте
+	 UserPrincipal getUser(String login, String password);
+	 
+	 //возвращает пользовател€ по »ƒ
+	 UserPrincipal getUserByID(Long userId);
+	 
+	 //возвращает пользовател€ по имени
+	 UserPrincipal getUserByName(String name);
+	 
+	 // метод возвращает список всех клиентов
+	 List<UserPrincipal> getUsers();
+	 
+	 // сохранение введенной информации об аккаунте от клиента
+	 void saveUser(UserPrincipal user);
+
+	 // удаление выбранного клиента
+	 void deleteUser(UserPrincipal user);
+
+}
+>>>>>>> ad04533f3eb4b9af3fdb3e1db76b6b4e7402cc8b

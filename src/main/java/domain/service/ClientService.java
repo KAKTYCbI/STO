@@ -12,20 +12,10 @@ import domain.model.Review;
 import domain.model.Service;
 import domain.model.Status;
 import domain.model.Sto;
+import domain.model.UserPrincipal;
 
 //интерфейс описывает действия c обьктами класса Client
 public interface ClientService {
- // сохранение введенной информации об аккаунте от клиента
- void saveClient(Client client);
-
- // удаление выбранного клиента
- void deleteClient(Client client);
-
- // метод возвращает список всех клиентов
- List<Client> getClients();
-
- // Авторизация пользователя на сайте
- Client getUser(String email, String password);
 
  // метод возвращает список всех СТО
  List<Sto> getAllSto();
@@ -48,13 +38,13 @@ public interface ClientService {
 
  // возвращает список заказов вмести со статусами определенного
  // авторизованного клиента
- Map<Application, Status> getApplication(Client client);
+ Map<Application, Status> getApplication(UserPrincipal user);
 
  // метод переносит заказ на другое СТО
  void changeSto(Application application, Sto Sto);
  
  //метод создает отзыв и оценку
- Review createReview(Review review,Client client, boolean visible);
+ Review createReview(Review review,UserPrincipal user, boolean visible);
 
  // метод выставляет отзыв и оценку работы СТО
  void estimateSto(Sto sto, Review review);
