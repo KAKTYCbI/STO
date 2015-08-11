@@ -37,5 +37,17 @@ public class LoginController {
 		return "login";
 
 	}
+	
+	@RequestMapping(value = "/logout")
+	public ModelAndView logout(HttpSession session) {
+
+		ModelAndView model = new ModelAndView();
+		model.setViewName("login");
+
+		session.setAttribute("user", null);
+		session.invalidate();
+
+		return model;
+	}
 
 }
