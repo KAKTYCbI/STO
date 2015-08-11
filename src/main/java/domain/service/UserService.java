@@ -1,12 +1,27 @@
 package domain.service;
 
+import java.util.List;
+
 import domain.model.UserPrincipal;
 
 public interface UserService {
 	
-	UserPrincipal loadUserByCredentials(String login, String password);
+	 // Авторизация пользователя на сайте
+	 UserPrincipal getUser(String login, String password);
+	 
+	 //возвращает пользователя по ИД
+	 UserPrincipal getUserByID(Long userId);
+	 
+	 //возвращает пользователя по имени
+	 UserPrincipal getUserByName(String name);
+	 
+	 // метод возвращает список всех клиентов
+	 List<UserPrincipal> getUsers();
+	 
+	 // сохранение введенной информации об аккаунте от клиента
+	 void saveUser(UserPrincipal user);
 
-	UserPrincipal getUserByID(Long userId);
+	 // удаление выбранного клиента
+	 void deleteUser(UserPrincipal user);
 
-	UserPrincipal getUserByName(String username);
 }
