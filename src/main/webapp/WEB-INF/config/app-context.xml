@@ -30,8 +30,8 @@
 		class="org.springframework.context.support.ConversionServiceFactoryBean">
 		<property name="converters">
 			<list>
-				<bean class="app.web.converters.StringToClientConverter" />
-				<bean class="app.web.converters.StringToUserPrincipalConverter" />
+				<bean class="converters.StringToClientConverter" />
+				<bean class="converters.StringToUserPrincipalConverter" />
 			</list>
 		</property>
 	</bean>
