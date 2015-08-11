@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-package domain.service;
-
-import domain.model.UserPrincipal;
-
-public interface UserService {
-	
-	UserPrincipal getUser(String login, String password);
-
-	UserPrincipal getUserByID(Long userId);
-
-	UserPrincipal getUserByName(String username);
-	
-	// сохранение введенной информации об аккаунте от клиента
-    void saveUser(UserPrincipal user);
-
-	// удаление выбранного клиента
-	void deleteUser(UserPrincipal user);
-}
-=======
 package domain.service;
 
 import java.util.List;
@@ -45,4 +25,3 @@ public interface UserService {
 	 void deleteUser(UserPrincipal user);
 
 }
->>>>>>> ad04533f3eb4b9af3fdb3e1db76b6b4e7402cc8b
