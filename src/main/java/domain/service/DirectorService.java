@@ -1,6 +1,6 @@
 package domain.service;
 
-import java.util.Date;
+
 import java.util.List;
 
 
@@ -14,7 +14,6 @@ import domain.model.Detail;
 import domain.model.Mechanic;
 import domain.model.Rent;
 import domain.model.Service;
-import domain.model.Status;
 import domain.model.Sto;
 
 
@@ -50,13 +49,10 @@ public interface DirectorService {
     //метод удалет механика
     void deleteMechanic(Mechanic mechanic);
     
-    //метод изменяет статус заявки
-    void updateStatusApplication(Application application, Status status);
-    
-    //метод дабавляет механика в заявку
-    void addMechanicApplication(Application application, Mechanic mechanic);
+    //метод изменяет  заявку
+    void updateStatusApplication(Application application);
 	
     //метод обнавлет(сохраняет) заявку на деталь
-    void saveApplicationDetail(ApplicationDetail applicationDetail,Status status,Date date);
+    void saveApplicationDetail(ApplicationDetail applicationDetail);
 
 }
