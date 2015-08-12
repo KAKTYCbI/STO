@@ -94,8 +94,12 @@ public class DirectorServiceImplement implements DirectorService{
 
 	@Override
 	public List<Mechanic> getMechanicsOnSto(Sto sto) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Mechanic> mechanic = new ArrayList<Mechanic>();
+		List<MechanicEntity> mechanicEntities = mechanicRepository.findBySto(sto);
+		for(MechanicEntity MechanicEntity : mechanicEntities) {
+			mechanic.add(getMapper().map(MechanicEntity, Mechanic.class));
+		}
+		return mechanic;
 	}
 
 	@Override

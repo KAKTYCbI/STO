@@ -54,6 +54,7 @@ public abstract class AbstractHibernateDao<T, PK extends Serializable> implement
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findByCriteria(Criterion criterion) {
+		
 		Criteria crit = getSession().createCriteria(this.getGenericEntityClass());
 		crit.add(criterion);
 		return (List<T>) crit.list();
