@@ -50,7 +50,7 @@ public interface DirectorService {
     void deleteMechanic(Mechanic mechanic);
     
     //метод изменяет  заявку
-    void updateStatusApplication(Application application);
+    void updateApplication(Application application);
 	
     //метод обнавлет(сохраняет) заявку на деталь
     void saveApplicationDetail(ApplicationDetail applicationDetail);

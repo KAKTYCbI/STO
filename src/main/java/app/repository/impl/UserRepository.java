@@ -1,6 +1,7 @@
 package app.repository.impl;
 
 import org.springframework.stereotype.Repository;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
@@ -8,9 +9,12 @@ import app.repository.dao.UserDao;
 import app.repository.entity.UserPrincipalEntity;
 import app.repository.hibernate.AbstractHibernateDao;
 
+
+
 @Repository
 public class UserRepository extends
 		AbstractHibernateDao<UserPrincipalEntity, Long> implements UserDao {
+	
 
 	public UserPrincipalEntity getUser(String login, String password) {
 		Criteria cr = getSession()
