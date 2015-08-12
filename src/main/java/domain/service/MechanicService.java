@@ -6,6 +6,7 @@ import java.util.Map;
 import domain.model.Application;
 import domain.model.Detail;
 import domain.model.Mechanic;
+import domain.model.Review;
 import domain.model.Service;
 import domain.model.Status;
 import domain.model.Sto;
@@ -39,4 +40,8 @@ public interface MechanicService {
 	 //метод создает сообщение для заданной заявки
 	 void notification(Application order, String text);
 	    
+	 // метод возвращает список отзывов и оценок определенного механика
+	 List<Review> getMechanicAllReview(Mechanic mechanic);
+
+	 
 	}
