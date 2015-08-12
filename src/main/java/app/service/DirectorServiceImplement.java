@@ -9,9 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import app.repository.dao.ApplicationDao;
 import app.repository.dao.ApplicationDetailDao;
+import app.repository.dao.DetailDao;
+import app.repository.dao.MechanicDao;
+import app.repository.dao.RentDao;
+import app.repository.dao.ServiceDao;
+import app.repository.dao.StoDao;
 import app.repository.entity.ApplicationDetailEntity;
 import app.repository.entity.ApplicationEntity;
+import app.repository.entity.DetailEntity;
+import app.repository.entity.MechanicEntity;
+import app.repository.entity.RentEntity;
+import app.repository.entity.ServiceEntity;
+import app.repository.entity.StoEntity;
 import app.repository.entity.map.ModelClassMap;
+import app.repository.impl.DetailRepository;
 import domain.model.Application;
 import domain.model.ApplicationDetail;
 import domain.model.Detail;
@@ -29,7 +40,22 @@ public class DirectorServiceImplement implements DirectorService{
 	@Autowired
 	private ApplicationDetailDao applicationDetailRepository;
 	
+	@Autowired
+	private MechanicDao mechanicRepository;
 
+	@Autowired
+	private StoDao stoRepository;
+	
+	@Autowired
+	private ServiceDao serviceRepository;
+	
+	@Autowired
+	private RentDao rentRepository;
+	
+	@Autowired
+	private DetailDao detailRepository;
+	
+	
 	@Autowired
 	private ModelClassMap modelClassMap;
 	
@@ -58,8 +84,12 @@ public class DirectorServiceImplement implements DirectorService{
 
 	@Override
 	public List<Mechanic> getMechanics() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Mechanic> mechanic = new ArrayList<Mechanic>();
+		List<MechanicEntity> mechanicEntities = mechanicRepository.findAll();
+		for(MechanicEntity MechanicEntity : mechanicEntities) {
+			mechanic.add(getMapper().map(MechanicEntity, Mechanic.class));
+		}
+		return mechanic;
 	}
 
 	@Override
@@ -70,50 +100,56 @@ public class DirectorServiceImplement implements DirectorService{
 
 	@Override
 	public List<Sto> getSto() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Sto> sto = new ArrayList<Sto>();
+		List<StoEntity> stoEntities = stoRepository.findAll();
+		for(StoEntity StoEntity : stoEntities) {
+			sto.add(getMapper().map(StoEntity, Sto.class));
+		}
+		return sto;
 	}
 
 	@Override
 	public void addDetail(Detail detail) {
-		// TODO Auto-generated method stub
+		detailRepository.save((getMapper().map(detail, DetailEntity.class)));
 		
 	}
 
 	@Override
 	public void saveOrUpdateMechanic(Mechanic mechanic) {
-		// TODO Auto-generated method stub
+		mechanicRepository.saveOrUpdate((getMapper().map(mechanic, MechanicEntity.class)));
 		
 	}
 
 	@Override
-	public void addRent(Rent rent, Sto sto) {
-		// TODO Auto-generated method stub
+	public void addRent(Rent rent) {
 		
+		rentRepository.save((getMapper().map(rent, RentEntity.class)));
 	}
 
 	@Override
 	public void addService(Service service) {
-		// TODO Auto-generated method stub
-		
+	
+		serviceRepository.save((getMapper().map(service, ServiceEntity.class)));
 	}
 
 	@Override
 	public void deleteMechanic(Mechanic mechanic) {
-		// TODO Auto-generated method stub
+	      mechanicRepository.delete((getMapper().map(mechanic, MechanicEntity.class)));
 		
 	}
 
 
 	@Override
 	public void saveApplicationDetail(ApplicationDetail applicationDetail) {
-		// TODO Auto-generated method stub
+		applicationDetailRepository.update((getMapper().map(applicationDetail, ApplicationDetailEntity.class)));
+
 		
 	}
 
 	@Override
 	public void updateApplication(Application application) {
-		// TODO Auto-generated method stub
+		  
+		applicationRepository.update((getMapper().map(application, ApplicationEntity.class)));
 		
 	}
 

@@ -41,7 +41,7 @@ public interface DirectorService {
     void saveOrUpdateMechanic(Mechanic mechanic);
     
     //метод дабавляет аренду на конкретном сто
-    void addRent(Rent rent, Sto sto);
+    void addRent(Rent rent);
 	
     //метод дабавляет услугу
     void addService(Service service);
