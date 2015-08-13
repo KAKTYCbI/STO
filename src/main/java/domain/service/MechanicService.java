@@ -1,47 +1,29 @@
 package domain.service;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
-
 import domain.model.Application;
-import domain.model.Detail;
+import domain.model.ApplicationDetail;
 import domain.model.Mechanic;
-import domain.model.Review;
-import domain.model.Service;
-import domain.model.Status;
-import domain.model.Sto;
+import domain.model.Message;
 
 public interface MechanicService {
 
 	 // метод возвращает список заявок заданного механика
-	 List<Application> getCurrentApplication(Mechanic mechanic, Sto sto);
+	 List<Application> getCurrentApplication(Mechanic mechanic);
 	 
-	 //метод меняет статус заказа 
-	 void SetStatus(Application order,Status status);
+	 //метод возращает список заявок на детали у определенного механика
+	 List<ApplicationDetail> getAllApplicationDetail(Mechanic mechanic);
 	 
-	 //метод ставит стоимость работы
-	 void setPrice(Application order, Service service);
+	 //метод обнавляет заявку
+	 void updateApplication(Application application);
 	 
-	 //метод ставит дату проведения работы
-	 void setDate(Application application, Date date);
-	 
-	 //метод возвращает список выполненных работ
-	 List<Service> doneServise(Application order,Service service);
-	 
-	 //метод возвращает список замененных деталей
-	 List<Detail> doneDetail(Application order,Detail detail);
-	 
-	 //метод возвращает список запчастей и их количеста на заданном СТО
-	 Map<Detail,Integer> getCurrentDiteil(Sto sto, Detail detail);
+	 //возращает заявку по Id
+	 Application getApplicationById(Long Id);
 	    
 	 //метод создает заявку на запчасть(запчасти)
-	 void orderDetail(Mechanic mechanic, Map<Detail,Integer> detail);
+	 void orderDetail(ApplicationDetail applicationDetail);
 	    
-	 //метод создает сообщение для заданной заявки
-	 void notification(Application order, String text);
-	    
-	 // метод возвращает список отзывов и оценок определенного механика
-	 List<Review> getMechanicAllReview(Mechanic mechanic);
-
+	 //метод создает сообщение
+	 void notification(Message message);
+     
 	 
 	}

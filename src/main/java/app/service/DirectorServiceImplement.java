@@ -22,7 +22,6 @@ import app.repository.entity.RentEntity;
 import app.repository.entity.ServiceEntity;
 import app.repository.entity.StoEntity;
 import app.repository.entity.map.ModelClassMap;
-import app.repository.impl.DetailRepository;
 import domain.model.Application;
 import domain.model.ApplicationDetail;
 import domain.model.Detail;

@@ -26,15 +26,6 @@
 
 	<mvc:annotation-driven conversion-service="conversionService" />
 
-	<bean id="conversionService"
-		class="org.springframework.context.support.ConversionServiceFactoryBean">
-		<property name="converters">
-			<list>
-				<bean class="converters.StringToClientConverter" />
-				<bean class="converters.StringToUserPrincipalConverter" />
-			</list>
-		</property>
-	</bean>
 
 	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
