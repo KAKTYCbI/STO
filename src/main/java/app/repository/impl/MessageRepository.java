@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import domain.model.Client;
 import app.repository.dao.MessageDao;
 import app.repository.entity.MessageEntity;
 import app.repository.hibernate.AbstractHibernateDao;
 
+@Repository
 public class MessageRepository extends
 AbstractHibernateDao<MessageEntity, Long> implements MessageDao{
 

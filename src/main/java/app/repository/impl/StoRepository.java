@@ -2,11 +2,13 @@ package app.repository.impl;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import app.repository.dao.StoDao;
 import app.repository.entity.StoEntity;
 import app.repository.hibernate.AbstractHibernateDao;
 
+@Repository
 public class StoRepository extends
 AbstractHibernateDao<StoEntity, Long> implements StoDao{
 

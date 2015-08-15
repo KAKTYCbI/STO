@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table
+@Table(name="application_detail")
 public class ApplicationDetailEntity {
 
 	@Id

@@ -6,6 +6,8 @@ import java.util.List;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import app.repository.dao.ApplicationDao;
 import app.repository.dao.ApplicationDetailDao;
@@ -27,10 +29,11 @@ import domain.model.ApplicationDetail;
 import domain.model.Detail;
 import domain.model.Mechanic;
 import domain.model.Rent;
-import domain.model.Service;
 import domain.model.Sto;
 import domain.service.DirectorService;
 
+@Service()
+@Transactional
 public class DirectorServiceImplement implements DirectorService{
 
 	@Autowired
@@ -130,7 +133,7 @@ public class DirectorServiceImplement implements DirectorService{
 	}
 
 	@Override
-	public void addService(Service service) {
+	public void addService(domain.model.Service service) {
 	
 		serviceRepository.save((getMapper().map(service, ServiceEntity.class)));
 	}

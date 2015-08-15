@@ -7,11 +7,14 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 
+import org.springframework.stereotype.Repository;
+
 import domain.model.Sto;
 import app.repository.dao.MechanicDao;
 import app.repository.entity.MechanicEntity;
 import app.repository.hibernate.AbstractHibernateDao;
 
+@Repository
 public class MechanicRepository extends
 AbstractHibernateDao<MechanicEntity, Long> implements MechanicDao{
 

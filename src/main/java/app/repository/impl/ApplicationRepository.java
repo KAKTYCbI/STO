@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import domain.model.Client;
 import domain.model.Mechanic;
@@ -12,6 +13,7 @@ import app.repository.entity.ApplicationEntity;
 import app.repository.entity.MechanicEntity;
 import app.repository.hibernate.AbstractHibernateDao;
 
+@Repository
 public class ApplicationRepository extends
 AbstractHibernateDao<ApplicationEntity, Long> implements ApplicationDao{
 

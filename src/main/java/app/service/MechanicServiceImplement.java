@@ -6,6 +6,8 @@ import java.util.List;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import app.repository.dao.ApplicationDao;
 import app.repository.dao.ApplicationDetailDao;
@@ -20,6 +22,8 @@ import domain.model.Mechanic;
 import domain.model.Message;
 import domain.service.MechanicService;
 
+@Service()
+@Transactional
 public class MechanicServiceImplement implements MechanicService{
 
 	@Autowired
