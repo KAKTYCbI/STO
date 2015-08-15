@@ -19,15 +19,17 @@ public class ClientEntity extends UserPrincipalEntity {
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "client", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	private List<MessageEntity> messagesEntity;
+	private List<MessageEntity> messages;
 
-	public List<MessageEntity> getMessagesEntity() {
-		return messagesEntity;
+	public List<MessageEntity> getMessages() {
+		return messages;
 	}
 
-	public void setMessagesEntity(List<MessageEntity> messagesEntity) {
-		this.messagesEntity = messagesEntity;
+	public void setMessages(List<MessageEntity> messages) {
+		this.messages = messages;
 	}
+
+
 	
 
 

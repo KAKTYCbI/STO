@@ -37,7 +37,7 @@ public class ApplicationDetailEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "application_application_id", nullable = false)
-	private ApplicationEntity applicationEntity;
+	private ApplicationEntity application;
 
 	public Long getApplicationDetailId() {
 		return applicationDetailId;
@@ -80,14 +80,14 @@ public class ApplicationDetailEntity {
 		this.dateDelivery = dateDelivery;
 	}
 
-	public ApplicationEntity getApplicationEntity() {
-		return applicationEntity;
+	public ApplicationEntity getApplication() {
+		return application;
 	}
 
-	public void setApplicationEntity(ApplicationEntity applicationEntity) {
-		this.applicationEntity = applicationEntity;
+	public void setApplication(ApplicationEntity application) {
+		this.application = application;
 	}
 
-
+	
 	
 }
