@@ -11,7 +11,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import domain.model.Salary;
 
 @Entity
 @Table(name="director")
@@ -20,16 +19,18 @@ public class DirectorEntity extends UserPrincipalEntity {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "director", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	private List<Salary> salarys;
-	
+	private List<SalaryEntity> salarys;
 
-	public List<Salary> getSalarys() {
+	public List<SalaryEntity> getSalarys() {
 		return salarys;
 	}
 
-	public void setSalarys(List<Salary> salarys) {
+	public void setSalarys(List<SalaryEntity> salarys) {
 		this.salarys = salarys;
 	}
+	
+
+
 	
 	
 

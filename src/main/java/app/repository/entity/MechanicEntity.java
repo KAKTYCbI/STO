@@ -14,11 +14,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import domain.model.Message;
-import domain.model.Review;
-import domain.model.Salary;
-import domain.model.Sto;
-
 @Entity
 @Table(name="mechanic")
 @PrimaryKeyJoinColumn(name = "user_id")
@@ -29,19 +24,19 @@ public class MechanicEntity extends UserPrincipalEntity{
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mechanic", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	private List<Message> messages;
+	private List<MessageEntity> messages;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mechanic", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	private List<Salary> salarys;
+	private List<SalaryEntity> salarys;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mechanic", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	private List<Review> reviews;
+	private List<ReviewEntity> reviews;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "sto_id", nullable = false)
-	private Sto sto;
+	private StoEntity sto;
 	
 	public Float getRating() {
 		return rating;
@@ -51,37 +46,39 @@ public class MechanicEntity extends UserPrincipalEntity{
 		this.rating = rating;
 	}
 
-	public List<Message> getMessages() {
+	public List<MessageEntity> getMessages() {
 		return messages;
 	}
 
-	public void setMessages(List<Message> messages) {
+	public void setMessages(List<MessageEntity> messages) {
 		this.messages = messages;
 	}
 
-	public List<Salary> getSalarys() {
+	public List<SalaryEntity> getSalarys() {
 		return salarys;
 	}
 
-	public void setSalarys(List<Salary> salarys) {
+	public void setSalarys(List<SalaryEntity> salarys) {
 		this.salarys = salarys;
 	}
 
-	public List<Review> getReviews() {
+	public List<ReviewEntity> getReviews() {
 		return reviews;
 	}
 
-	public void setReviews(List<Review> reviews) {
+	public void setReviews(List<ReviewEntity> reviews) {
 		this.reviews = reviews;
 	}
 
-	public Sto getSto() {
+	public StoEntity getSto() {
 		return sto;
 	}
 
-	public void setSto(Sto sto) {
+	public void setSto(StoEntity sto) {
 		this.sto = sto;
 	}
+
+
 
 	
 	

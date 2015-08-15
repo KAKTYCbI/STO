@@ -14,9 +14,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import domain.model.Application;
-import domain.model.Mechanic;
-import domain.model.Review;
+
 
 @Entity
 @Table(name="sto")
@@ -35,15 +33,15 @@ public class StoEntity {
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sto", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	private List<Review> reviews;
+	private List<ReviewEntity> reviews;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sto", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-    private List<Mechanic> mechanics;
+    private List<MechanicEntity> mechanics;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sto", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	private List<Application> orders;
+	private List<ApplicationEntity> orders;
 	
 	public Long getStoId() {
 		return stoId;
@@ -69,30 +67,31 @@ public class StoEntity {
 		this.rating = rating;
 	}
 
-	public List<Review> getReviews() {
+	public List<ReviewEntity> getReviews() {
 		return reviews;
 	}
 
-	public void setReviews(List<Review> reviews) {
+	public void setReviews(List<ReviewEntity> reviews) {
 		this.reviews = reviews;
 	}
 
-	public List<Mechanic> getMechanics() {
+	public List<MechanicEntity> getMechanics() {
 		return mechanics;
 	}
 
-	public void setMechanics(List<Mechanic> mechanics) {
+	public void setMechanics(List<MechanicEntity> mechanics) {
 		this.mechanics = mechanics;
 	}
 
-	public List<Application> getOrders() {
+	public List<ApplicationEntity> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(List<Application> orders) {
+	public void setOrders(List<ApplicationEntity> orders) {
 		this.orders = orders;
 	}
-	
+
+
 	
 
 }

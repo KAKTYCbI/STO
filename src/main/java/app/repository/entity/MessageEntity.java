@@ -10,8 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import domain.model.Client;
-import domain.model.Mechanic;
+
 
 @Entity
 @Table(name="message")
@@ -27,11 +26,11 @@ public class MessageEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "client_id", nullable = false )
-    private Client client;
+    private ClientEntity client;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "mechanic_id", nullable = false)
-	private Mechanic mechanic;
+	private MechanicEntity mechanic;
 
 	public Long getMessageId() {
 		return messageId;
@@ -49,21 +48,23 @@ public class MessageEntity {
 		this.text = text;
 	}
 
-	public Client getClient() {
+	public ClientEntity getClient() {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(ClientEntity client) {
 		this.client = client;
 	}
 
-	public Mechanic getMechanic() {
+	public MechanicEntity getMechanic() {
 		return mechanic;
 	}
 
-	public void setMechanic(Mechanic mechanic) {
+	public void setMechanic(MechanicEntity mechanic) {
 		this.mechanic = mechanic;
 	}
+
+
 
 	
 

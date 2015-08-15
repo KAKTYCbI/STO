@@ -12,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import domain.model.Director;
-import domain.model.Mechanic;
 
 
 @Entity
@@ -33,11 +31,11 @@ public class SalaryEntity {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "director_id", nullable = false)
-    private Director director;
+    private DirectorEntity director;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "mechanic_id", nullable = false)
-	private Mechanic mechanic;
+	private MechanicEntity mechanic;
 	
 	public Long getSalaryId() {
 		return salaryId;
@@ -63,21 +61,23 @@ public class SalaryEntity {
 		this.summa = summa;
 	}
 
-	public Director getDirector() {
+	public DirectorEntity getDirector() {
 		return director;
 	}
 
-	public void setDirector(Director director) {
+	public void setDirector(DirectorEntity director) {
 		this.director = director;
 	}
 
-	public Mechanic getMechanic() {
+	public MechanicEntity getMechanic() {
 		return mechanic;
 	}
 
-	public void setMechanic(Mechanic mechanic) {
+	public void setMechanic(MechanicEntity mechanic) {
 		this.mechanic = mechanic;
 	}
+
+
 	
 	
 }

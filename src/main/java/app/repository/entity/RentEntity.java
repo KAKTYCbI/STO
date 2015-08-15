@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import domain.model.Sto;
+
 
 @Entity
 @Table(name="rent")
@@ -31,7 +31,7 @@ public class RentEntity {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "sto_sto_id", nullable = false)
-	private Sto sto;
+	private StoEntity sto;
 	
 	public Long getRentId() {
 		return rentId;
@@ -57,13 +57,15 @@ public class RentEntity {
 		this.price = price;
 	}
 
-	public Sto getSto() {
+	public StoEntity getSto() {
 		return sto;
 	}
 
-	public void setSto(Sto sto) {
+	public void setSto(StoEntity sto) {
 		this.sto = sto;
 	}
+
+
 
 	
 }

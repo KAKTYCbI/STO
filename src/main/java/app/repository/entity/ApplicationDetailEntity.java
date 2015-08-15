@@ -12,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import domain.model.Application;
-import domain.model.Status;
 
 @Entity
 @Table
@@ -26,7 +24,7 @@ public class ApplicationDetailEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "status_status_id", nullable = false)
-	private Status status;
+	private StatusEntity status;
 	
 	@Column(name="name")
 	private String name;
@@ -39,7 +37,7 @@ public class ApplicationDetailEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "application_application_id", nullable = false)
-	private Application application;
+	private ApplicationEntity applicationEntity;
 
 	public Long getApplicationDetailId() {
 		return applicationDetailId;
@@ -49,11 +47,12 @@ public class ApplicationDetailEntity {
 		this.applicationDetailId = applicationDetailId;
 	}
 
-	public Status getStatus() {
+
+	public StatusEntity getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(StatusEntity status) {
 		this.status = status;
 	}
 
@@ -81,13 +80,14 @@ public class ApplicationDetailEntity {
 		this.dateDelivery = dateDelivery;
 	}
 
-	public Application getApplication() {
-		return application;
+	public ApplicationEntity getApplicationEntity() {
+		return applicationEntity;
 	}
 
-	public void setApplication(Application application) {
-		this.application = application;
+	public void setApplicationEntity(ApplicationEntity applicationEntity) {
+		this.applicationEntity = applicationEntity;
 	}
-	
+
+
 	
 }

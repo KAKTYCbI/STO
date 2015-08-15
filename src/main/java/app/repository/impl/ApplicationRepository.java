@@ -10,7 +10,6 @@ import domain.model.Mechanic;
 import app.repository.dao.ApplicationDao;
 import app.repository.entity.ApplicationEntity;
 import app.repository.entity.MechanicEntity;
-import app.repository.entity.UserPrincipalEntity;
 import app.repository.hibernate.AbstractHibernateDao;
 
 public class ApplicationRepository extends

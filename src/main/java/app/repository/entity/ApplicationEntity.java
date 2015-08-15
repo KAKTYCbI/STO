@@ -18,12 +18,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import domain.model.Client;
-import domain.model.Detail;
-import domain.model.Mechanic;
-import domain.model.Service;
-import domain.model.Status;
-import domain.model.Sto;
 
 @Entity
 @Table(name = "application")
@@ -45,7 +39,7 @@ public class ApplicationEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "status_status_id", nullable = false)
-	private Status status;
+	private StatusEntity statusEntity;
 	
 	@ManyToMany(fetch = FetchType.LAZY/*, cascade = CascadeType.ALL*/)
 	@JoinTable(name = "service_has_application", 
@@ -53,7 +47,7 @@ public class ApplicationEntity {
 				@JoinColumn(name = "application_application_id", nullable = false) }, 
 				inverseJoinColumns = { @JoinColumn(name = "service_service_id", nullable = false) })
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	private List<Service> services;
+	private List<ServiceEntity> servicesEntity;
 	
 	@ManyToMany(fetch = FetchType.LAZY/*, cascade = CascadeType.ALL*/)
 	@JoinTable(name = "application_has_detail", 
@@ -61,19 +55,19 @@ public class ApplicationEntity {
 				@JoinColumn(name = "application_application_id", nullable = false) }, 
 				inverseJoinColumns = { @JoinColumn(name = "detail_detail_id", nullable = false) })
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	private List<Detail> details;
+	private List<DetailEntity> detailsEntity;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "client_client_id", nullable = false)
-	private Client client;
+	private ClientEntity clientEntity;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "mechanic_mechanic_id", nullable = false)
-	private Mechanic mechanic;
+	private MechanicEntity mechanicEntity;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "sto_sto_id", nullable = false)
-	private Sto sto;
+	private StoEntity stoEntity;
 	
    
 
@@ -109,53 +103,55 @@ public class ApplicationEntity {
 		this.dateCompletion = dateCompletion;
 	}
 
-	public Status getStatus() {
-		return status;
+	public StatusEntity getStatusEntity() {
+		return statusEntity;
 	}
 
-	public void setStatus(Status status) {
-		this.status = status;
+	public void setStatusEntity(StatusEntity statusEntity) {
+		this.statusEntity = statusEntity;
 	}
 
-	public List<Service> getServices() {
-		return services;
+	public List<ServiceEntity> getServicesEntity() {
+		return servicesEntity;
 	}
 
-	public void setServices(List<Service> services) {
-		this.services = services;
+	public void setServicesEntity(List<ServiceEntity> servicesEntity) {
+		this.servicesEntity = servicesEntity;
 	}
 
-	public List<Detail> getDetails() {
-		return details;
+	public List<DetailEntity> getDetailsEntity() {
+		return detailsEntity;
 	}
 
-	public void setDetails(List<Detail> details) {
-		this.details = details;
+	public void setDetailsEntity(List<DetailEntity> detailsEntity) {
+		this.detailsEntity = detailsEntity;
 	}
 
-	public Client getClient() {
-		return client;
+	public ClientEntity getClientEntity() {
+		return clientEntity;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClientEntity(ClientEntity clientEntity) {
+		this.clientEntity = clientEntity;
 	}
 
-	public Mechanic getMechanic() {
-		return mechanic;
+	public MechanicEntity getMechanicEntity() {
+		return mechanicEntity;
 	}
 
-	public void setMechanic(Mechanic mechanic) {
-		this.mechanic = mechanic;
+	public void setMechanicEntity(MechanicEntity mechanicEntity) {
+		this.mechanicEntity = mechanicEntity;
 	}
 
-	public Sto getSto() {
-		return sto;
+	public StoEntity getStoEntity() {
+		return stoEntity;
 	}
 
-	public void setSto(Sto sto) {
-		this.sto = sto;
+	public void setStoEntity(StoEntity stoEntity) {
+		this.stoEntity = stoEntity;
 	}
+
+
 
 	
 }

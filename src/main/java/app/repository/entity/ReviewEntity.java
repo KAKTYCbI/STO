@@ -12,9 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import domain.model.Client;
-import domain.model.Mechanic;
-import domain.model.Sto;
+
 
 @Entity
 @Table(name="review")
@@ -39,15 +37,15 @@ public class ReviewEntity {
     
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "client_client_id", nullable = false)
-	private Client client;
+	private ClientEntity client;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "mechanic_mechanic_id", nullable = false)
-    private Mechanic mechanic;
+    private MechanicEntity mechanic;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "sto_sto_id", nullable = false)
-	private Sto sto;
+	private StoEntity sto;
 	
 	public Long getReviewId() {
 		return reviewId;
@@ -89,29 +87,31 @@ public class ReviewEntity {
 		this.visible = visible;
 	}
 
-	public Client getClient() {
+	public ClientEntity getClient() {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(ClientEntity client) {
 		this.client = client;
 	}
 
-	public Mechanic getMechanic() {
+	public MechanicEntity getMechanic() {
 		return mechanic;
 	}
 
-	public void setMechanic(Mechanic mechanic) {
+	public void setMechanic(MechanicEntity mechanic) {
 		this.mechanic = mechanic;
 	}
 
-	public Sto getSto() {
+	public StoEntity getSto() {
 		return sto;
 	}
 
-	public void setSto(Sto sto) {
+	public void setSto(StoEntity sto) {
 		this.sto = sto;
 	}
+
+
 	
 	
 	
