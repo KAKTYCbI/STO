@@ -9,9 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import app.repository.dao.ReviewDao;
 import app.repository.dao.UserDao;
+import app.repository.entity.ReviewEntity;
 import app.repository.entity.UserPrincipalEntity;
 import app.repository.entity.map.ModelClassMap;
+import domain.model.Review;
 import domain.model.UserPrincipal;
 import domain.service.UserService;
 
@@ -22,6 +25,9 @@ public class UserServiceImplement implements UserService {
 	@Autowired
 	private UserDao userRepository;
 
+	@Autowired
+	private ReviewDao reviewRepository;
+	
 	@Autowired
 	private ModelClassMap modelClassMap;
 
@@ -86,6 +92,16 @@ public class UserServiceImplement implements UserService {
 	public void deleteUser(UserPrincipal user) {
 		userRepository.delete(getMapper().map(user, UserPrincipalEntity.class));
 		
+	}
+
+	@Override
+	public List<Review> getReview() {
+		List<Review> reviews = new ArrayList<Review>();
+		List<ReviewEntity> ReviewEntities = reviewRepository.findAll();
+		for(ReviewEntity ReviewEntity : ReviewEntities) {
+			reviews.add(getMapper().map(ReviewEntity, Review.class));
+		}
+		return reviews;
 	}
 
 	

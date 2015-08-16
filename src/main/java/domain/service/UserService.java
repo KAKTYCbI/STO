@@ -2,6 +2,7 @@ package domain.service;
 
 import java.util.List;
 
+import domain.model.Review;
 import domain.model.UserPrincipal;
 
 public interface UserService {
@@ -18,6 +19,9 @@ public interface UserService {
 	 // метод возвращает список всех клиентов
 	 List<UserPrincipal> getUsers();
 	 
+	 // метод возвращает список всех отзывов
+     List<Review> getReview();
+		 
 	 // сохранение введенной информации об аккаунте от клиента
 	 void saveUser(UserPrincipal user);
 
