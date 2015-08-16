@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -19,21 +20,26 @@ import org.hibernate.annotations.CascadeType;
 @PrimaryKeyJoinColumn(name = "user_id")
 public class MechanicEntity extends UserPrincipalEntity{
 	
+	@Mapping("rating")
 	@Column(name="rating")
 	private Float rating;
 	
+	@Mapping("messages")
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mechanic", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<MessageEntity> messages;
 	
+	@Mapping("salarys")
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mechanic", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<SalaryEntity> salarys;
 	
+	@Mapping("reviews")
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mechanic", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<ReviewEntity> reviews;
 	
+	@Mapping("sto")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "sto_id", nullable = false)
 	private StoEntity sto;

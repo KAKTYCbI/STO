@@ -7,18 +7,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
+
 @Entity
 @Table(name="detail")
 public class DetailEntity {
 	
 	@Id
+	@Mapping("id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="detail_id")
 	private Long detailId;
 	
+	@Mapping("name")
 	@Column(name="name")
 	private String name;
 	
+	@Mapping("price")
 	@Column(name="price")
 	private Long price;
 

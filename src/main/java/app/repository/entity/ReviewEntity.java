@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
+
 
 
 @Entity
@@ -19,30 +21,38 @@ import javax.persistence.Table;
 public class ReviewEntity {
 
 	@Id
+	@Mapping("id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="review_id")
 	private Long reviewId;
 	
+	@Mapping("text")
 	@Column(name="text")
 	private String text;
 	
+	@Mapping("date")
 	@Column(name="date")
 	private Date date;
 	
+	@Mapping("rating")
 	@Column(name="rating")
 	private Float rating;
 	
+	@Mapping("visible")
 	@Column(name="visible")
 	private Boolean visible;
     
+	@Mapping("client")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "client_client_id", nullable = false)
 	private ClientEntity client;
 	
+	@Mapping("mechanic")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "mechanic_mechanic_id", nullable = false)
     private MechanicEntity mechanic;
 	
+	@Mapping("sto")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "sto_sto_id", nullable = false)
 	private StoEntity sto;

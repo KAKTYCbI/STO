@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
+
 
 
 @Entity
@@ -17,17 +19,21 @@ import javax.persistence.Table;
 public class MessageEntity {
 
 	@Id
+	@Mapping("id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="message_id")
 	private Long messageId;
 	
+	@Mapping("text")
 	@Column(name="text")
 	private String text;
 	
+	@Mapping("client")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "client_id", nullable = false )
     private ClientEntity client;
 	
+	@Mapping("mechanic")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "mechanic_id", nullable = false)
 	private MechanicEntity mechanic;

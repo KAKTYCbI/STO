@@ -11,6 +11,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
+
 import domain.model.UserRole;
 
 @Entity()
@@ -19,25 +21,32 @@ import domain.model.UserRole;
 public class UserPrincipalEntity {
 	
 	@Id
+	@Mapping("userId")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Long userId;
 
+	@Mapping("name")
 	@Column(name = "name")
 	private String name;
 
+	@Mapping("login")
 	@Column(name = "login")
 	private String login;
 	
+	@Mapping("email")
 	@Column(name="email")
 	private String email;
 	
+	@Mapping("contact")
 	@Column(name="contact")
 	private String contact;
 
+	@Mapping("password")
 	@Column(name = "password")
 	private String password;
 
+	@Mapping("role")
 	@Column(name = "role")
 	@Enumerated(EnumType.STRING)
 	private UserRole role;

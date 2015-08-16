@@ -8,7 +8,7 @@ public class Salary {
 	
 	private Date date;
 	
-	private Double summa;
+	private Float summa;
 	
 	private Director director;
 	
@@ -30,11 +30,11 @@ public class Salary {
 		this.date = date;
 	}
 
-	public Double getSumma() {
+	public Float getSumma() {
 		return summa;
 	}
 
-	public void setSumma(Double summa) {
+	public void setSumma(Float summa) {
 		this.summa = summa;
 	}
 

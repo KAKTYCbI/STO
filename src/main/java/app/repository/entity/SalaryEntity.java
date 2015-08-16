@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
+
 
 
 @Entity
@@ -19,20 +21,25 @@ import javax.persistence.Table;
 public class SalaryEntity {
 
 	@Id
+	@Mapping("id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="salary_id")
 	private Long salaryId;
 	
+	@Mapping("date")
 	@Column(name="date")
 	private Date date;
 	
+	@Mapping("summa")
 	@Column(name="summa")
 	private Float summa;
 
+	@Mapping("director")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "director_id", nullable = false)
     private DirectorEntity director;
 	
+	@Mapping("mechanic")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "mechanic_id", nullable = false)
 	private MechanicEntity mechanic;

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -21,24 +22,30 @@ import org.hibernate.annotations.CascadeType;
 public class StoEntity {
 	
 	@Id
+	@Mapping("id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="sto_id")
 	private Long stoId;
 	
+	@Mapping("name")
 	@Column(name="name")
 	private String name;
 	
+	@Mapping("rating")
 	@Column(name="rating")
 	private Float rating;
 	
+	@Mapping("reviews")
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sto", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<ReviewEntity> reviews;
 	
+	@Mapping("mechanics")
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sto", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
     private List<MechanicEntity> mechanics;
 	
+	@Mapping("orders")
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sto", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<ApplicationEntity> orders;

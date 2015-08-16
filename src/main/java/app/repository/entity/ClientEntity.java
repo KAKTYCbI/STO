@@ -8,6 +8,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -17,6 +18,7 @@ import org.hibernate.annotations.CascadeType;
 @PrimaryKeyJoinColumn(name = "user_id")
 public class ClientEntity extends UserPrincipalEntity {
 	
+	@Mapping("messages")
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "client", orphanRemoval=true)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<MessageEntity> messages;

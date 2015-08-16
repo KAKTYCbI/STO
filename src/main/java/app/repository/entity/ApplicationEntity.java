@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -24,23 +25,29 @@ import org.hibernate.annotations.CascadeType;
 public class ApplicationEntity {
 	
 	@Id
+	@Mapping("id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="application_id")
     private Long id;
 	
+	@Mapping("price")
 	@Column(name="price")
 	private Float price;
 	
+	@Mapping("dateOrder")
 	@Column(name="date_order")
 	private Date dateOrder;
 	
+	@Mapping("dateCompletion")
 	@Column(name="date_completion")
 	private Date dateCompletion;
 	
+	@Mapping("status")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "status_status_id", nullable = false)
 	private StatusEntity status;
 	
+	@Mapping("services")
 	@ManyToMany(fetch = FetchType.LAZY/*, cascade = CascadeType.ALL*/)
 	@JoinTable(name = "service_has_application", 
 			joinColumns = { 
@@ -49,6 +56,7 @@ public class ApplicationEntity {
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<ServiceEntity> services;
 	
+	@Mapping("details")
 	@ManyToMany(fetch = FetchType.LAZY/*, cascade = CascadeType.ALL*/)
 	@JoinTable(name = "application_has_detail", 
 			joinColumns = { 
@@ -57,14 +65,17 @@ public class ApplicationEntity {
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	private List<DetailEntity> details;
 	
+	@Mapping("client")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "client_client_id", nullable = false)
 	private ClientEntity client;
 	
+	@Mapping("mechanic")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "mechanic_mechanic_id", nullable = false)
 	private MechanicEntity mechanic;
 	
+	@Mapping("sto")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "sto_sto_id", nullable = false)
 	private StoEntity sto;

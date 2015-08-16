@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
+
 
 
 @Entity
@@ -19,16 +21,20 @@ import javax.persistence.Table;
 public class RentEntity {
 	
 	@Id
+	@Mapping("id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="rent_id")
 	private Long rentId;
 	
+	@Mapping("dateStart")
 	@Column(name="start")
 	private Date start;
 		
+	@Mapping("price")
 	@Column(name="price")
 	private Float price;
 
+	@Mapping("sto")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "sto_sto_id", nullable = false)
 	private StoEntity sto;

@@ -7,18 +7,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.dozer.Mapping;
+
 @Entity
 @Table(name="service")
 public class ServiceEntity {
 	
 	@Id
+	@Mapping("id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="service_id")
 	private Long serviceId;
 	
+	@Mapping("name")
 	@Column(name="name")
 	private String name;
 	
+	@Mapping("price")
 	@Column(name="price")
 	private Float price;
 
