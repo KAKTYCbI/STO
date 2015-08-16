@@ -5,7 +5,7 @@ import domain.model.ApplicationDetail;
 import domain.model.Mechanic;
 import domain.model.Message;
 
-public interface MechanicService {
+public interface MechanicService extends UserService{
 
 	 // метод возвращает список заявок заданного механика
 	 List<Application> getCurrentApplication(Mechanic mechanic);
