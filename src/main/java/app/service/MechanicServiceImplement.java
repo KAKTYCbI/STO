@@ -20,6 +20,8 @@ import domain.model.Application;
 import domain.model.ApplicationDetail;
 import domain.model.Mechanic;
 import domain.model.Message;
+import domain.model.Review;
+import domain.model.UserPrincipal;
 import domain.service.MechanicService;
 
 @Service()
@@ -91,6 +93,48 @@ public class MechanicServiceImplement implements MechanicService{
 	public void notification(Message message) {
 		messageRepository.save((getMapper().map(message, MessageEntity.class)));
 
+		
+	}
+
+	@Override
+	public UserPrincipal getUser(String login, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserPrincipal getUserByID(Long userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserPrincipal getUserByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserPrincipal> getUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Review> getReview() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void saveUser(UserPrincipal user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteUser(UserPrincipal user) {
+		// TODO Auto-generated method stub
 		
 	}
 
